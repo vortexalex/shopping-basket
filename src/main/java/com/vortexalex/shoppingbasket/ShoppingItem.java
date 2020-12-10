@@ -1,7 +1,5 @@
 package com.vortexalex.shoppingbasket;
 
-import com.vortexalex.shoppingbasket.util.ShoppingCategory;
-
 import java.math.BigDecimal;
 
 public class ShoppingItem {
