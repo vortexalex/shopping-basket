@@ -25,7 +25,7 @@ public class DefaultTaxPolicyTest {
 
         BigDecimal tax = taxPolicy.apply(item);
 
-        assertEquals(new BigDecimal(0), tax);
+        assertEquals(new BigDecimal("0.00"), tax);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class DefaultTaxPolicyTest {
 
         BigDecimal tax = taxPolicy.apply(item);
 
-        assertEquals(new BigDecimal(0), tax);
+        assertEquals(new BigDecimal("0.00"), tax);
     }
 
     @Test
@@ -45,17 +45,27 @@ public class DefaultTaxPolicyTest {
 
         BigDecimal tax = taxPolicy.apply(item);
 
-        assertEquals(new BigDecimal(0), tax);
+        assertEquals(new BigDecimal("0.00"), tax);
     }
 
     @Test
-    public void testPolicyAppliesTaxesForMusic() {
-        ShoppingItem item = new ShoppingItem("music", ShoppingCategory.OTHER, new BigDecimal(10));
+    public void testPolicyAppliesTaxesForImportedPerfume() {
+        ShoppingItem item = new ShoppingItem("perfume", ShoppingCategory.OTHER, true, new BigDecimal("47.50"));
         DefaultTaxPolicy taxPolicy = new DefaultTaxPolicy(exemptionPolicy);
 
         BigDecimal tax = taxPolicy.apply(item);
 
-        assertEquals(new BigDecimal(1), tax);
+        assertEquals(new BigDecimal("7.15"), tax);
+    }
+
+    @Test
+    public void testPolicyAppliesTaxesForImportedBook() {
+        ShoppingItem importBook = new ShoppingItem("importBook", ShoppingCategory.BOOK, true, new BigDecimal(10));
+        DefaultTaxPolicy taxPolicy = new DefaultTaxPolicy(exemptionPolicy);
+
+        BigDecimal tax = taxPolicy.apply(importBook);
+
+        assertEquals(new BigDecimal("0.50"), tax);
     }
 
 

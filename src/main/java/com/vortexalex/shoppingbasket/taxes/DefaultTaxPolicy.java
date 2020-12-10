@@ -1,13 +1,14 @@
 package com.vortexalex.shoppingbasket.taxes;
 
 import com.vortexalex.shoppingbasket.ShoppingItem;
+import com.vortexalex.shoppingbasket.util.Rounding;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 public class DefaultTaxPolicy {
 
-    private static final BigDecimal TAX_RATE_PERC = new BigDecimal(10);
+    private static final BigDecimal TAX_RATE_PERC = new BigDecimal("10");
+    private static final BigDecimal IMPORT_TAX_RATE_PERC = new BigDecimal("5");
 
     private ExemptionPolicy exemptionPolicy;
 
@@ -16,10 +17,14 @@ public class DefaultTaxPolicy {
     }
 
     public BigDecimal apply(ShoppingItem item) {
-        return Optional.ofNullable(item)
-                .filter(i -> !exemptionPolicy.isExempt(i))
-                .map(i -> i.getPrice().multiply(TAX_RATE_PERC).divide(new BigDecimal(100)))
-                .orElse(new BigDecimal(0));
+         BigDecimal result = new BigDecimal("0");
+         if (!exemptionPolicy.isExempt(item)) {
+             result = result.add(item.getPrice().multiply(TAX_RATE_PERC).divide(new BigDecimal("100")));
+         }
+         if (item.getImported()) {
+             result = result.add(item.getPrice().multiply(IMPORT_TAX_RATE_PERC).divide(new BigDecimal("100")));
+         }
+         return Rounding.round(result);
     }
 
 }
