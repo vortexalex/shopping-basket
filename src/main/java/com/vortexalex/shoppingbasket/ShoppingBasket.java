@@ -7,15 +7,15 @@ public class ShoppingBasket {
 
     private List<ShoppingItem> items = new ArrayList<>();
 
-    void addItem(ShoppingItem item) {
+    public void addItem(ShoppingItem item) {
         items.add(item);
     }
 
-    ShoppingItem getItem(Integer index) {
+    public ShoppingItem getItem(Integer index) {
         return items.get(index);
     }
 
-    Integer getSize() {
+    public Integer getSize() {
         return items.size();
     }
 

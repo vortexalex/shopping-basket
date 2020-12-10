@@ -1,5 +1,6 @@
 package com.vortexalex.shoppingbasket;
 
+import com.vortexalex.shoppingbasket.util.ShoppingCategory;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -12,10 +13,12 @@ public class ShoppingBasketTest {
     @Test
     void testShoppingBasketContainsOneItem() {
         ShoppingBasket basket = new ShoppingBasket();
-        basket.addItem(new ShoppingItem("book", new BigDecimal(12.49)));
+        basket.addItem(new ShoppingItem("book", ShoppingCategory.BOOK, new BigDecimal(12.49)));
 
         assertEquals(1, basket.getSize());
-        assertEquals(new BigDecimal(12.49), basket.getItem(0).getPrice());
+        ShoppingItem item = basket.getItem(0);
+        assertEquals(ShoppingCategory.BOOK, item.getCategory());
+        assertEquals(new BigDecimal(12.49), item.getPrice());
     }
 
     @Test

@@ -1,23 +1,32 @@
 package com.vortexalex.shoppingbasket;
 
+import com.vortexalex.shoppingbasket.util.ShoppingCategory;
+
 import java.math.BigDecimal;
 
 public class ShoppingItem {
 
     private String description;
 
+    private ShoppingCategory category;
+
     private BigDecimal price;
 
-    ShoppingItem(String description, BigDecimal price) {
+    public ShoppingItem(String description, ShoppingCategory category, BigDecimal price) {
         this.description = description;
+        this.category = category;
         this.price = price;
     }
 
-    String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    BigDecimal getPrice() {
+    public ShoppingCategory getCategory() {
+        return category;
+    }
+
+    public BigDecimal getPrice() {
         return price;
     }
 }
