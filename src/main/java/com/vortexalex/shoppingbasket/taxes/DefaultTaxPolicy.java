@@ -5,7 +5,7 @@ import com.vortexalex.shoppingbasket.util.Rounding;
 
 import java.math.BigDecimal;
 
-public class DefaultTaxPolicy {
+public class DefaultTaxPolicy implements TaxPolicy {
 
     private static final BigDecimal TAX_RATE_PERC = new BigDecimal("10");
     private static final BigDecimal IMPORT_TAX_RATE_PERC = new BigDecimal("5");

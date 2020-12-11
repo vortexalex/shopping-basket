@@ -19,5 +19,11 @@ public class ShoppingBasket {
         return items.size();
     }
 
+    public List<ShoppingItem> getItems() {
+        return items;
+    }
+
+
+
 
 }
