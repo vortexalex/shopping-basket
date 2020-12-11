@@ -1,5 +1,6 @@
 package com.vortexalex.shoppingbasket.checkout;
 
+import com.vortexalex.shoppingbasket.Receipt;
 import com.vortexalex.shoppingbasket.ShoppingBasket;
 import com.vortexalex.shoppingbasket.taxes.TaxPolicy;
 

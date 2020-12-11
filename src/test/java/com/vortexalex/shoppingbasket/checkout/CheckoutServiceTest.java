@@ -1,6 +1,6 @@
 package com.vortexalex.shoppingbasket.checkout;
 
-import com.sun.corba.se.spi.ior.IdentifiableFactory;
+import com.vortexalex.shoppingbasket.Receipt;
 import com.vortexalex.shoppingbasket.ShoppingBasket;
 import com.vortexalex.shoppingbasket.ShoppingCategory;
 import com.vortexalex.shoppingbasket.ShoppingItem;

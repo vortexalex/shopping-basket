@@ -1,9 +1,10 @@
-package com.vortexalex.shoppingbasket.checkout;
+package com.vortexalex.shoppingbasket;
 
 import com.vortexalex.shoppingbasket.ShoppingItem;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class Receipt {
     private BigDecimal total;
 
     public Receipt(){
-        items = new HashMap<>();
+        items = new LinkedHashMap<>();
         taxes = new BigDecimal("0.00");
         total = new BigDecimal("0.00");
     }
